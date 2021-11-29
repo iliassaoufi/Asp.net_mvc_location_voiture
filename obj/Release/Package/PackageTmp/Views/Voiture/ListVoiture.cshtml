@@ -1,0 +1,69 @@
+﻿
+@model IEnumerable<ProjetASP.net.Models.Voiture_info>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="ListVoiture">
+
+    <div class="banner">
+        <div class="content">
+            <h2> list de tous les voiture </h2>
+            <div class="row ">
+                <div class="col-5">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary">Action</button>
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<br />
+
+<section>
+    <div class="container">
+
+        <br />
+        <div class="row justify-content-start">
+            @if (Model != null)
+            {
+                foreach (ProjetASP.net.Models.Voiture_info item in Model)
+                {
+
+
+                    <div class=" col-md-3">
+                        @Html.Partial("_VoitureCard", item)
+                    </div>
+                }
+            }
+            else
+            {
+                <h3>vide</h3>
+            }
+
+        </div>
+    </div>
+</section>
+
